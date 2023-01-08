@@ -9,7 +9,7 @@
             <notice-icon class="action" />
             <a-dropdown>
                 <span class="action ant-dropdown-link user-dropdown-menu">
-                    <a-avatar class="avatar" size="small" />
+                    <a-avatar class="avatar" size="small" src="https://img-blog.csdnimg.cn/img_convert/efd5140d2f150cc7678495768c3fb55e.png"/>
                     <span class="nickname">hello</span>
                 </span>
                 <template #overlay>
