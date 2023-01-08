@@ -2,7 +2,7 @@
     <transition name="showHeader">
         <div v-if="visible" class="header-animat">
             <a-layout-header v-if="visible"
-                :class="[defaultSettings.fixedHeader && 'ant-header-fixedHeader', collapsed ? 'ant-header-side-opened' : 'ant-header-side-closed',]"
+                :class="[defaultSettings.fixedHeader && 'ant-header-fixedHeader', collapsed ? 'ant-header-side-closed' : 'ant-header-side-opened',]"
                 :style="{ padding: '0' }">
                 <div class="header">
                     <span @click="toggle">
