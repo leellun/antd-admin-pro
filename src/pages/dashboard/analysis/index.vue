@@ -275,6 +275,7 @@ import Bar from './components/Charts/Bar.vue'
 import NumberInfo from './components/NumberInfo/NumberInfo.vue'
 import MiniSmoothArea from './components/Charts/MiniSmoothArea.vue'
 import Pie from './components/Charts/Pie.vue'
+import { isMobile } from '@/utils/device'
 // created
 const loading = ref<boolean>(true)
     setTimeout(() => {

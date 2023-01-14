@@ -64,7 +64,7 @@ import { isMobile } from '@/utils/device'
 
 const loading = ref<boolean>(false)
     const visible = ref<boolean>(false)
-    const noticeRef = ref(null)
+    const noticeRef = ref<any>(null)
 
     const fetchNotice = () => {
       if (!visible.value) {

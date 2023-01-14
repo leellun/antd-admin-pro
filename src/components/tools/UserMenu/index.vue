@@ -15,16 +15,16 @@
                 <template #overlay>
                     <a-menu class="ant-pro-drop-down menu" :selected-keys="[]">
                         <a-menu-item key="center" @click="handleToCenter">
-                            <a-icon type="user" />
+                            <user-outlined />
                             个人中心
                         </a-menu-item>
                         <a-menu-item key="settings" @click="handleToSettings">
-                            <a-icon type="setting" />
+                            <setting-outlined />
                             个人设置
                         </a-menu-item>
                         <a-menu-divider />
                         <a-menu-item key="logout" @click="handleLogout">
-                            <a-icon type="logout" />
+                            <logout-outlined />
                             退出登录
                         </a-menu-item>
                     </a-menu>
@@ -35,6 +35,7 @@
 </template>
 
 <script setup lang="ts">
+import {UserOutlined,SettingOutlined,LogoutOutlined} from '@ant-design/icons-vue'
 import NoticeIcon from '@/components/NoticeIcon/index.vue'
 import {
     QuestionCircleOutlined,

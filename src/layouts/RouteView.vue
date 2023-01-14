@@ -4,7 +4,7 @@
       <component :is="Component" />
     </keep-alive>
   </router-view>
-  <route-view v-else/>
+  <router-view v-else/>
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue';

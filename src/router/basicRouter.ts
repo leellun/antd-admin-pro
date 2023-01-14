@@ -4,7 +4,7 @@ import { BasicLayout, RouteView,BlankLayout } from "@/layouts";
 
 import { getRoutePages } from "@/utils/batchImportFiles";
 import { usePermissionStore } from "@/store/permission";
-import cloneDeep from "lodash.clonedeep";
+import _ from "lodash";
 
 const layouts: { [x: string]: Function } = {
   BasicLayout,
@@ -62,7 +62,7 @@ export const generateAsyncRoutes = (router: Router, menus?: Array<any>) => {
   }
   resetMenuPath("", menus);
   const permissionStore = usePermissionStore();
-  permissionStore.setMenus(cloneDeep(menus));
+  permissionStore.setMenus(_.cloneDeep(menus));
 
   rootRouter.children = menus;
 
@@ -72,7 +72,6 @@ export const generateAsyncRoutes = (router: Router, menus?: Array<any>) => {
 
   refreshMenuData(rootRouter);
   rootRouter.redirect = getLeafMenuForFShowPath(rootRouter);
-  router.removeRoute(rootRouter.name);
   router.addRoute(rootRouter as unknown as RouteRecordRaw);
 };
 
