@@ -56,7 +56,7 @@ export function loadMenus(router: Router) {
   generateAsyncRoutes(router, rootRouter.children);
 }
 //构建路由
-export const generateAsyncRoutes = (router: Router, menus?: Array<TRouter>) => {
+export const generateAsyncRoutes = (router: Router, menus?: Array<any>) => {
   if (!menus) {
     return;
   }

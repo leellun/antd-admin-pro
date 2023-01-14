@@ -95,7 +95,6 @@ import { useRouter } from 'vue-router'
 import encrypt from "@/utils/secret";
 import { loadMenus } from "@/router/basicRouter";
 import { useUserStore } from '@/store/user'
-const userStore = useUserStore();
 import {
     MobileOutlined,
     MailOutlined,
@@ -106,7 +105,8 @@ import {
     LockOutlined
 } from '@ant-design/icons-vue'
 import { FormState } from './types'
-import config from '@/config/defaultSettings'
+
+const userStore = useUserStore()
 
 const useForm = Form.useForm
 const router = useRouter()
