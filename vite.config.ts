@@ -1,10 +1,21 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 import VueSetupExtend from "vite-plugin-vue-setup-extend";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import viteSvgIcons from 'vite-plugin-svg-icons';
+import viteCompression from "vite-plugin-compression";
+import { terser } from "rollup-plugin-terser"
+import { visualizer } from 'rollup-plugin-visualizer';
+import {
+  createStyleImportPlugin,
+  AndDesignVueResolve,
+  VantResolve,
+  ElementPlusResolve,
+  NutuiResolve,
+  AntdResolve,
+} from 'vite-plugin-style-import'
 
 import {
   AntDesignVueResolver,
@@ -15,9 +26,22 @@ import { resolve } from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
+  server: {
+    host: "0.0.0.0",
+    port: 8002,
+  },
   plugins: [
     vue(),
+    vueJsx(),
     VueSetupExtend(),
+    viteCompression({
+      //生成压缩包gz
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: "gzip",
+      ext: ".gz",
+    }),
     AutoImport({
       resolvers: [
         ElementPlusResolver(),
@@ -38,6 +62,35 @@ export default defineConfig({
       // 指定symbolId格式
       symbolId: "icon-[dir]-[name]",
     }),
+    //压缩
+    terser({
+      numWorkers:1
+    }),
+    //打包分析
+    visualizer({
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+     }),
+     //自动导入vue的style
+     createStyleImportPlugin({
+      resolves: [
+        AndDesignVueResolve(),
+        VantResolve(),
+        ElementPlusResolve(),
+        NutuiResolve(),
+        AntdResolve(),
+      ],
+      libs: [
+        {
+          libraryName: 'ant-design-vue',
+          esModule: true,
+          resolveStyle: (name) => {
+            return `ant-design-vue/es/${name}/style/index`
+          },
+        },
+      ],
+    }),
   ],
   resolve: {
     alias: [
@@ -55,7 +108,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         javascriptEnabled: true,
-      }
+      },
     },
   },
 });

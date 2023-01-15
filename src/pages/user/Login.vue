@@ -169,6 +169,7 @@ const rulesRef = reactive({
 const { validate, validateInfos } = useForm(formRef, rulesRef)
 const isLoginError = ref(false)
 const handleSubmit = (e: Event) => {
+    console.log("77777777777777")
     e.preventDefault()
     state.loginBtn = true
     const validateFieldsKey =
