@@ -1,4 +1,5 @@
 import NProgress from "nprogress"; // progress bar
+import '@/components/NProgress/nprogress.less' // progress bar custom style
 import { ACCESS_TOKEN, PERMISSION } from "@/store/mutation-types";
 import { generateAsyncRoutes } from "@/router/basicRouter";
 import { useUserStore } from "@/store/user";
