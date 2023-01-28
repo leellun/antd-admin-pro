@@ -20,7 +20,7 @@ export default {
   storage: {
     namespace: "PRO_",
   },
-  multiTab: false, //多标签
+  multiTab: true, //多标签
   grayMode: false, //黑白模式
   darkMode: false, // 色弱模式
   menus: [
@@ -40,7 +40,7 @@ export default {
           name: "analysis",
           meta: {
             title: "分析页",
-            keepAlive: true,
+            keepAlive: false,
           },
           component: "dashboard/analysis",
         },
