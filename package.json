@@ -15,6 +15,7 @@
     "ant-design-vue": "^3.2.15",
     "antd-theme-generator": "^1.2.11",
     "axios": "^1.2.1",
+    "json-bigint": "^1.0.0",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
     "nprogress": "^0.2.0",

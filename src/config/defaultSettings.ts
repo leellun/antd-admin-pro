@@ -23,6 +23,7 @@ export default {
   multiTab: true, //多标签
   grayMode: false, //黑白模式
   darkMode: false, // 色弱模式
+  timeout:5000,//请求超时时间
   menus: [
     {
       name: "dashboard",
@@ -50,7 +51,7 @@ export default {
           meta: {
             title: "监控页（外部）",
             target: "http://www.baidu.com",
-            blank: true,
+            blank: false,
           },
         },
         {
